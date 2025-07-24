@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primer proyecto</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Galería Castañeda</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('galeria')">Galería</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('sobre-nosotros')">Sobre Nosotros</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+
+  <!-- INICIO -->
+  <section id="inicio" class="seccion activa">
+    <h1>Bienvenido a la galería</h1>
+    <p>Explora nuestras categorías destacadas.</p>
+
+     <!-- DESTACADOS -->
+      <h3 class="mt-4">Imágenes Destacadas</h3>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=400" class="img-fluid rounded shadow" alt="Destacado 1" onclick="mostrarDetalleModal(this.src, this.alt, 'Joan Castañeda')">
+        </div>
+        <div class="col-md-4 mb-3">
+          <img src="https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=400" class="img-fluid rounded shadow" alt="Destacado 2" onclick="mostrarDetalleModal(this.src, this.alt, 'Joan Castañeda')">
+        </div>
+        <div class="col-md-4 mb-3">
+          <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=400" class="img-fluid rounded shadow" alt="Destacado 3" onclick="mostrarDetalleModal(this.src, this.alt, 'Joan Castañeda')">
+        </div>
+      </div>
+
+      <!-- CATEGORÍAS -->
+    <h3 class="mt-4">Categorías</h3>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card border-primary">
+          <div class="card-body">
+            <h5 class="card-title">Naturaleza</h5>
+            <p class="card-text">Descubre paisajes y belleza natural.</p>
+            <button class="btn btn-outline-primary btn-sm" onclick="mostrarSeccion('galeria'); filtrarCategoria('naturaleza')">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-success">
+          <div class="card-body">
+            <h5 class="card-title">Ciudad</h5>
+            <p class="card-text">Fotos de arquitectura y vida urbana.</p>
+            <button class="btn btn-outline-success btn-sm" onclick="mostrarSeccion('galeria'); filtrarCategoria('ciudad')">Ver más</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-secondary">
+          <div class="card-body">
+            <h5 class="card-title">Todas</h5>
+            <p class="card-text">Explora toda nuestra galería.</p>
+            <button class="btn btn-outline-dark btn-sm" onclick="mostrarSeccion('galeria'); filtrarCategoria('todas')">Ver todas</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="seccion">
+    <h2>Galería</h2>
+    
+    <!-- Filtros -->
+    <div class="mb-3">
+      <button class="btn btn-outline-primary btn-sm" onclick="filtrarCategoria('todas')">Todas</button>
+      <button class="btn btn-outline-primary btn-sm" onclick="filtrarCategoria('naturaleza')">Naturaleza</button>
+      <button class="btn btn-outline-primary btn-sm" onclick="filtrarCategoria('ciudad')">Ciudad</button>
+    </div>
+
+    <!-- Miniaturas -->
+    <div id="contenedorGaleria" class="row">
+    <div class="col-md-4 mb-3 imagen-galeria" data-categoria="naturaleza">
+        <img src="https://images.pexels.com/photos/1480799/pexels-photo-1480799.jpeg" class="img-fluid miniatura"
+            alt="Paisaje verde" onclick="mostrarDetalleModal(this.src, this.alt, 'Joan Castañeda')"/>
+    </div>
+    <div class="col-md-4 mb-3 imagen-galeria" data-categoria="ciudad">
+        <img src="https://via.placeholder.com/300x200?text=Animales+1" class="img-fluid miniatura"
+            alt="Gato curioso" onclick="mostrarDetalleModal(this.src, this.alt, 'Joan Castañeda')"/>
+    </div>
+    <div class="col-md-4 mb-3 imagen-galeria" data-categoria="naturaleza">
+        <img src="https://via.placeholder.com/300x200?text=Naturaleza+2" class="img-fluid miniatura"
+            alt="Montaña nevada" onclick="mostrarDetalleModal(this.src, this.alt, 'Joan Castañeda')"/>
+    </div>
+    </div>
+
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section id="sobre-nosotros" class="seccion">
+    <h2>Sobre Nosotros</h2>
+    <p>Este proyecto fue desarrollado por el estudiante Joan Castañeda del diplomado en desarrollo web.</p>
+
+    <h3>Formulario de Contacto</h3>
+    <form onsubmit="return validarFormulario()">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </section>
+</main>
+<footer class="bg-dark text-white text-center py-3 mt-auto"> <p>&copy; 2025 - Proyecto Galería</p> </footer>
+
+<!-- MODAL DETALLE -->
+<div class="modal fade" id="modalImagen" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detalle de la imagen</h5>
+        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImagenSrc" class="img-fluid mb-3" src="" alt=""/>
+        <p id="modalDescripcion"></p>
+        <small id="modalAutor" class="text-muted"></small>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="funciones.js"></script>
+  </body>
+</html>

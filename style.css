@@ -1,0 +1,30 @@
+/* style.css */
+
+.seccion {
+  display: none;
+}
+.activa {
+  display: block;
+}
+.miniatura {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.miniatura:hover {
+  transform: scale(1.05);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
