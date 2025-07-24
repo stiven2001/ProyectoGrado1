@@ -23,3 +23,5 @@ Abre el archivo index.html para ver la galería principal.
 Haz clic en una imagen para ver los detalles en detalle.html.
 
 Visita sobre-nosotros.html para conocer a los autores y dejar un mensaje.
+
+Proyecto ubicado en la rama <MAIN>
